@@ -10,16 +10,15 @@ function Cart() {
   const cartItemList = Object.values(cartItems);
   const isEmpty = cartItemList.length === 0;
   console.log(cartItemList);
+
+
   const handlePay = () => {
     if (!user) {
-      navigate("/login")
-     
-
-  
+      navigate("/login");
       return;
     }
     makeEmpty();
-    navigate("/payment") // Assuming you have a payment route set up
+    navigate("/payment");
   };
 
   return (
@@ -69,7 +68,7 @@ function Cart() {
             </div>
           ))}
 
-          {/* Pay Now button */}
+        
           <button
             onClick={handlePay}
             className="fixed bottom-10 left-1/2 -translate-x-1/2 text-xl sm:text-3xl bg-green-500 px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-lg hover:bg-green-600"

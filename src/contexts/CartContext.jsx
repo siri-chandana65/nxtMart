@@ -11,9 +11,7 @@ export function CartProvider({ children }) {
             const prevEntry = prev[item.id];
             return {
                 ...prev,
-                [item.id]: prevEntry
-                    ? { ...prevEntry, count: prevEntry.count + 1 }
-                    : { ...item, count: 1 }
+                [item.id]: prevEntry ? { ...prevEntry, count: prevEntry.count + 1 }: { ...item, count: 1 }
             };
         });
     };
@@ -23,8 +21,9 @@ export function CartProvider({ children }) {
             const prevEntry = prev[item.id];
             if (!prevEntry) return prev;
             if (prevEntry.count <= 1) {
-                const { [item.id]: _, ...rest } = prev;
-                return rest;
+                const updatedCart = { ...prev };
+                delete updatedCart[item.id];
+                return updatedCart;
             }
             return {
                 ...prev,
@@ -44,6 +43,6 @@ export function CartProvider({ children }) {
     );
 }
 
-export function useCart() {
+export function useCart(){
     return useContext(CartContext);
 }

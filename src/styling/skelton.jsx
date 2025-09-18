@@ -1,4 +1,5 @@
-const SkeletonCard=()=> {
+// SkeletonCard.jsx
+export const SkeletonCard=()=> {
   return (
     <div className="animate-pulse bg-white rounded-lg shadow p-4">
       <div className="bg-gray-300 h-40 w-full rounded-md"></div>
@@ -10,4 +11,9 @@ const SkeletonCard=()=> {
     </div>
   );
 }
-export default SkeletonCard;
+
+export const SkeletonButton=()=> {
+  return (
+    <div className="animate-pulse bg-gray-300 h-10 min-w-[150px] rounded-md "></div>
+  )
+}

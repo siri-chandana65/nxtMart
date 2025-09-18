@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+import { SkeletonButton } from "../styling/skelton";
 
 
 function Categories ({props, callBack}) {
@@ -21,14 +21,17 @@ function Categories ({props, callBack}) {
             </nav>
             {data.length > 0 ? data.map((each) => (
                 <a
-                    onClick={() => handleCategoryClick(each.name)} // send key directly
+                    onClick={() => handleCategoryClick(each.name)}
                     className={selectedCategory===each.name ? "bg-green-400 text-white p-2 rounded-md" : "p-2 "}
                     key={each.name}
                 >
                     {each.name}
                 </a>
-            )) : (<h1>data not found</h1>)}
+            )) : (
+                Array.from({ length: 8 }).map((_, i) => <SkeletonButton key={i} />)
+            )}
         </div>
     )
 }
+
 export default Categories

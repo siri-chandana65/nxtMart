@@ -3,7 +3,7 @@ import Categories from "../compound/categories";
 import Products from "../compound/products";
 import { Link, Navigate } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
-import SkeletonCard from "../styling/skelton";
+import {SkeletonCard} from "../styling/skelton";
 
 function Home() {
     const [products, setProducts] = useState([]);
